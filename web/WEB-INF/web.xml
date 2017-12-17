@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>DispatchServlet</servlet-name>
+        <servlet-class>org.web.vote.servlet.DispatchServlet`</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DispatchServlet</servlet-name>
+        <url-pattern>/DispatchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>org.web.vote.servlet.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/UserServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VoteServlet</servlet-name>
+        <servlet-class>org.web.vote.servlet.VoteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VoteServlet</servlet-name>
+        <url-pattern>/VoteServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>reg</servlet-name>
+        <jsp-file>/WEB-INF/jsp/register.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>reg</servlet-name>
+        <url-pattern>/reg</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>addVote</servlet-name>
+        <jsp-file>/WEB-INF/jsp/add.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addVote</servlet-name>
+        <url-pattern>/addVote</url-pattern>
+    </servlet-mapping>
+    
+    <filter>
+        <filter-name>loginFilter</filter-name>
+        <filter-class>org.web.vote.filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>loginFilter</filter-name>
+        <servlet-name>VoteServlet</servlet-name>
+<!--<servlet-name>UserServlet</servlet-name>-->
+        <url-pattern>/addVote</url-pattern>
+    </filter-mapping>
+</web-app>
